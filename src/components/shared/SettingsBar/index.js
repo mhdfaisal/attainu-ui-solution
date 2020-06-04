@@ -8,8 +8,6 @@ const SettingsBar = () => {
     const dispatch = useAppDispatch();
     const productsCount = (products || []).length;
 
-    console.log(productsCount);
-
     const handleReloadClick = () => {
         window.location.reload();
     };
