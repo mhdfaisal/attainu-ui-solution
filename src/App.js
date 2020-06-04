@@ -1,12 +1,13 @@
 import React from "react";
 
 import Home from "./components/pages/Home";
+import { AppContextProvider } from "../src/context";
 
 const App = () => {
     return (
-        <div>
+        <AppContextProvider>
             <Home />
-        </div>
+        </AppContextProvider>
     );
 };
 

@@ -4,12 +4,15 @@ import reducer from "./reducer";
 const AppStateContext = React.createContext();
 const AppDispatchContext = React.createContext();
 
-const initialState = [
-    { productId: 1, qty: 0 },
-    { productId: 2, qty: 0 },
-    { productId: 3, qty: 0 },
-    { productId: 4, qty: 0 },
-];
+const initialState = {
+    products: [
+        { productId: 1, qty: 0 },
+        { productId: 2, qty: 0 },
+        { productId: 3, qty: 0 },
+        { productId: 4, qty: 0 },
+    ],
+    cart: [],
+};
 
 const AppContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -20,4 +23,6 @@ const AppContextProvider = ({ children }) => {
     );
 };
 
-export default AppContextProvider;
+export { AppContextProvider };
+export const useAppDispatch = () => useContext(AppDispatchContext);
+export const useAppData = () => useContext(AppStateContext);

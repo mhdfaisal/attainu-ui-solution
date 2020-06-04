@@ -1,11 +1,15 @@
 import React from "react";
 
 import ProductListItem from "./ProductListItem";
+import { useAppData } from "../../../context";
 
 const ProductList = () => {
+    const { products } = useAppData();
     return (
         <div>
-            <ProductListItem />
+            {products.map((item, index) => {
+                return <ProductListItem product={item} />;
+            })}
         </div>
     );
 };
