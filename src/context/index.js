@@ -11,7 +11,6 @@ const initialState = {
         { productId: 3, qty: 0 },
         { productId: 4, qty: 0 },
     ],
-    cart: [],
 };
 
 const AppContextProvider = ({ children }) => {
@@ -23,6 +22,6 @@ const AppContextProvider = ({ children }) => {
     );
 };
 
-export { AppContextProvider };
+export { AppContextProvider, initialState };
 export const useAppDispatch = () => useContext(AppDispatchContext);
 export const useAppData = () => useContext(AppStateContext);

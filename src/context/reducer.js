@@ -1,4 +1,11 @@
-import { INCREASE_PRODUCT_COUNT, DECREASE_PRODUCT_COUNT, DELETE_PRODUCT } from "./types";
+import {
+    INCREASE_PRODUCT_COUNT,
+    DECREASE_PRODUCT_COUNT,
+    DELETE_PRODUCT,
+    RESET_PRODUCT_DATA,
+} from "./types";
+
+import { initialState } from "./index";
 
 const reducer = (state = [], action) => {
     const { type, payload } = action;
@@ -40,6 +47,8 @@ const reducer = (state = [], action) => {
             });
 
             return { ...state, products: [...productsArrayAfterDeletion] };
+        case RESET_PRODUCT_DATA:
+            return { ...initialState };
         default:
             return state;
     }
