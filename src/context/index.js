@@ -22,6 +22,6 @@ const AppContextProvider = ({ children }) => {
     );
 };
 
-export { AppContextProvider, initialState };
+export { AppContextProvider };
 export const useAppDispatch = () => useContext(AppDispatchContext);
 export const useAppData = () => useContext(AppStateContext);

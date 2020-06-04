@@ -5,8 +5,6 @@ import {
     RESET_PRODUCT_DATA,
 } from "./types";
 
-import { initialState } from "./index";
-
 const reducer = (state = [], action) => {
     const { type, payload } = action;
     switch (type) {
@@ -48,7 +46,10 @@ const reducer = (state = [], action) => {
 
             return { ...state, products: [...productsArrayAfterDeletion] };
         case RESET_PRODUCT_DATA:
-            return { ...initialState };
+            const productsAfterReset = state.products.map((item) => {
+                return { ...item, qty: 0 };
+            });
+            return { ...state, products: [...productsAfterReset] };
         default:
             return state;
     }
